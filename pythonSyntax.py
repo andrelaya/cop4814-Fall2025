@@ -14,7 +14,13 @@ Explanations and examples will be added by Greg.
 # - Multi-line comments (docstrings)
 # ==========================================================
 
+# this is how we print in python
+print("Andre", 3.14, 10)
 
+"""
+this is a 
+block comment
+"""
 
 # ==========================================================
 # 2. VARIABLES AND DATA TYPES
