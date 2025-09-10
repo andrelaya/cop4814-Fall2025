@@ -76,4 +76,52 @@ print(robot2.environment("fresh"))
 print(robot2.introduce())
 
 
+from abc import abstractmethod, ABC
+
+class StreamingService(ABC):
+
+    @abstractmethod
+    def play(self):
+        pass
+
+    @abstractmethod
+    def add_subscriber(self, username):
+        pass
+
+    @abstractmethod
+    def remove_subscriber(self, username):
+        pass
+
+    @abstractmethod
+    def display(self):
+        pass
+
+class VideoStreamingService(StreamingService, ABC):
+    def __init__(self, name, cost):
+        self.name = name
+        self.cost = cost
+        self.subscribersList = []
+
+    def play(self):
+        print("I am a rich streaming service")
+
+    def add_subscriber(self, username):
+        self.subscribersList.append(username)
+
+    def remove_subscriber(self, username):
+        try:
+            self.subscribersList.remove(username)
+        except ValueError:
+            pass
+
+    def display(self):
+        print("I provide tv shows and movies to my subscribers.")
+
+netflix = VideoStreamingService("Netflix", 15.99)
+print(netflix.add_subscriber("greg"))
+print(netflix.subscribersList)
+
+
+
+
 
